@@ -1,0 +1,21 @@
+<Rectangle Color="#fff" CornerRadius="8" Margin="10" Height="216" ux:Class="TvCard">
+  <DockPanel>
+    <Rectangle Dock="Left" Width="120" CornerRadius="4" Margin="8">
+      <ImageFill Url="{Poster}"></ImageFill>
+    </Rectangle>
+    <StackPanel Alignment="Left">
+      <Text Color="#D0021B" FontSize="18" Margin="0,10" Value="{Title}" />
+      <Text FontSize="14" Color="MyGrey" TextWrapping="Wrap" Margin="0,0,8,0" Value="{Plot}" />
+    </StackPanel>
+    <Text Color="MyGrey" FontSize="36" Value="{imdbRating}" Alignment="Bottom" Margin="0,8" />
+    <Circle Width="30" Height="30" Alignment="BottomRight" Margin="12" ux:Name="ViewCircle">
+      <Stroke Width="2" Color="MyGrey"></Stroke>
+    </Circle>
+  </DockPanel>
+  <Clicked>
+    <Toggle Target="CircleFadeIn" />
+  </Clicked>
+  <WhileTrue ux:Name="CircleFadeIn">
+    <Change ViewCircle.Color="#B8E986" Duration="0.2" />
+  </WhileTrue>
+</Rectangle>

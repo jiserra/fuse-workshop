@@ -1,0 +1,26 @@
+<App Background="#000">
+  <JavaScript>
+  var Observable = require("FuseJS/Observable");
+
+  var data = Observable();
+
+  fetch('http://tinguaco.org/television.json')
+  .then(function(response) { return response.json(); })
+  .then(function(responseObject) { data.replaceAll(responseObject.television); });
+
+  module.exports = {
+    data: data
+  };
+  </JavaScript>
+
+  <float4 ux:Global="MyGrey" ux:Value="#525252" />
+
+  <ScrollView>
+    <StackPanel>
+      <Each Items="{data}">
+        <TvCard />
+      </Each>
+    </StackPanel>
+  </ScrollView>
+
+</App>
